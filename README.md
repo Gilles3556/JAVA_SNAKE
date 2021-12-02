@@ -6,8 +6,8 @@ J'ai séparé les classes dites "métier" dans le package [model] et le classes 
 J'ai rajouté des Fabriques et mis en place le modèle MVP.
 
 Les codes sources sont:
--origines: dans le répertoire [com/zetcode]
--mes sources : dans le répertoire[pndg]
+* origines: dans le répertoire [com/zetcode]
+* mes sources : dans le répertoire[pndg]
 
 
 
