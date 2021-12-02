@@ -1,0 +1,288 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": ""
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false // root node is included
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "pndg.codeV2.ihm.BoardSnake"
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1355091639 { 
+   	label=codeV2
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_562610109 { 
+   	label=presenter
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   PresenterSnake726477936[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PresenterSnake</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   fen: FenetreJeuSnake [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   fjs: FacadeJeuSnake [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addPomme()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ afficherTerrain(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ calculerCollisionApple(sx: int, sy: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ executer()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ gererCollision(idx: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ init()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ restart()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_64749124 { 
+   	label=model
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Apple274153489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Apple</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   apple_x: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   apple_y: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ locateApple()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Directions274153489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Directions</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   downDirection: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   leftDirection: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rightDirection: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   upDirection: boolean [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+FacadeJeuSnake274153489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)FacadeJeuSnake</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   jeu: JeuSnake [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addScoreUnePomme()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ augmenterScore()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ calculerCollisionApple(sx: int, sy: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ effacerPomme(idx: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- etreFinDesPommes(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ faireGrandirSerpent()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ init()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ restart()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+JeuSnake274153489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)JeuSnake</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dir: Directions [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   leSerpent: Croissant [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   leTerrain: Terrain [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   lesPommes: Localisable[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nbPomme: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addPomme()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ calculerCollisionApple(sx: int, sy: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ effacerPomme(idx: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ init()</TD></TR>
+<TR><TD ALIGN="LEFT" >- resterPommes(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Snake274153489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Snake</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dots: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ grandir()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Terrain274153489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Terrain</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   x: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   y: int[] [0..*]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_898259703 { 
+   	label=ihm
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   BoardSnake746649110[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BoardSnake</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   inGame: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pres: PresenterSnake [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   timer: Timer [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ actionPerformed(e: ActionEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ calculerCollisionApple(serpentX: int, serpentY: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- checkApple()</TD></TR>
+<TR><TD ALIGN="LEFT" >- checkCollision()</TD></TR>
+<TR><TD ALIGN="LEFT" >- checkInTerrain(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- doDrawing(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- gameOver(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- initBoard()</TD></TR>
+<TR><TD ALIGN="LEFT" >- initGame()</TD></TR>
+<TR><TD ALIGN="LEFT" >- move()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ paintComponent(g: Graphics)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+FenetreJeuSnake746649110[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)FenetreJeuSnake</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- initUI(pres: PresenterSnake)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ majPomme(ctr: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+BoardSnake746649110 -> PresenterSnake726477936[label="pres
+[0..1]"];
+FacadeJeuSnake274153489 -> JeuSnake274153489[label="jeu
+[0..1]"];
+JeuSnake274153489 -> Apple274153489[arrowhead=none, arrowtail=empty, dir=both];
+JeuSnake274153489 -> Directions274153489[label="dir
+[0..1]"];
+JeuSnake274153489 -> Snake274153489[arrowhead=none, arrowtail=empty, dir=both];
+JeuSnake274153489 -> Terrain274153489[label="leTerrain
+[0..1]"];
+PresenterSnake726477936 -> FacadeJeuSnake274153489[label="fjs
+[0..1]"];
+PresenterSnake726477936 -> FenetreJeuSnake746649110[label="fen
+[0..1]"];
+    
+}
+@enduml
