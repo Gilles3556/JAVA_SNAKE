@@ -1,6 +1,6 @@
 # JAVA_SNAKE
 
-![screenshot](snake_screebshot.png)
+![screenshot](snake_screenshot.png)
 
 Une reprise du code sce de janbodnar que vous pourrez trouver ICI: https://github.com/janbodnar/Java-Snake-Game.
 
